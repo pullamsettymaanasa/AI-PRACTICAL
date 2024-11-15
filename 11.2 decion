@@ -1,0 +1,43 @@
+def decision_tree(weather, temperature, time_of_day):
+    # Decision logic based on the dataset
+    if weather == "Sunny":
+        if temperature == "High" and time_of_day == "Morning":
+            return "Yes"
+        elif temperature == "Low" and time_of_day == "Afternoon":
+            return "Yes"
+        elif time_of_day == "Evening":
+            return "Yes"
+        else:
+            return "No"
+    
+    elif weather == "Rainy":
+        if temperature == "Low" and time_of_day == "Afternoon":
+            return "No"
+        elif temperature == "Low" and time_of_day == "Evening":
+            return "No"
+        else:
+            return "No"
+    
+    elif weather == "Cloudy":
+        if time_of_day == "Evening":
+            return "Yes"
+        else:
+            return "No"
+
+    return "No"
+
+# Sample input
+weather = "Sunny"
+temperature = "High"
+time_of_day = "Morning"
+
+# Call the decision tree function
+print(decision_tree(weather, temperature, time_of_day))  # Expected Output: Yes
+
+# Another sample input
+weather = "Rainy"
+temperature = "Low"
+time_of_day = "Afternoon"
+
+# Call the decision tree function
+print(decision_tree(weather, temperature, time_of_day))  # Expected Output: No
