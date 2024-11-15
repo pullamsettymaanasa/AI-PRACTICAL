@@ -1,0 +1,14 @@
+def dfs(graph, start, goal):
+    stack = [start]  # Start with the start node in the stack
+    visited = []  # List to track visited nodes
+
+    while stack:
+        node = stack.pop()  # Get the last node from the stack
+        if node == goal:
+            print(f"Goal {goal} found!")
+            return
+        if node not in visited:
+            visited.append(node)  # Mark node as visited
+            print(f"Visited {node}")
+            stack.extend(graph[node])  # Add neighbors to the stack
+    print(f"Goal {goal} not found.")
