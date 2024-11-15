@@ -1,0 +1,21 @@
+# Simple map coloring using greedy approach with color names
+def map_coloring(graph, colors_list):
+    color = [-1] * len(graph)  # No color assigned yet
+
+    for node in range(len(graph)):
+        # Try each color for the current node
+        for color_name in colors_list:
+            # Check if it's safe to assign this color to the node
+            if all(color[neighbor] != color_name for neighbor in graph[node]):
+                color[node] = color_name
+                break
+
+    return color
+
+# Graph: Each key is a node, and the list contains adjacent nodes
+graph = {0: [1, 2], 1: [0, 2], 2: [0, 1]}  # Simple 3-node graph
+colors_list = ["Red", "Green", "Blue"]  # Color names
+
+# Get color assignments
+colors = map_coloring(graph, colors_list)
+print("Coloring:", colors)
