@@ -1,3 +1,4 @@
+# BFS with Start and Goal
 def bfs(graph, start, goal):
     queue = [start]  # Start with the start node in the queue
     visited = []  # List to track visited nodes
@@ -12,3 +13,16 @@ def bfs(graph, start, goal):
             print(f"Visited {node}")
             queue.extend(graph[node])  # Add neighbors to the queue
     print(f"Goal {goal} not found.")
+
+# Example graph (as adjacency list)
+graph = {
+    1: [2, 3],
+    2: [1, 4, 5],
+    3: [1, 6],
+    4: [2],
+    5: [2],
+    6: [3]
+}
+
+# Call BFS function
+bfs(graph, 1, 5)  # Start at node 1 and look for goal node 5
