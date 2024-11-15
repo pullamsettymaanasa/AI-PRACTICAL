@@ -1,0 +1,19 @@
+def a_star(start, goal, graph, heuristic):
+    open_list = [(start, [start])]  # Start with the initial city and its path
+    while open_list:
+        current, path = open_list.pop(0)  # Get the city and its path from the open list
+        if current == goal:
+            return path  # Return the path when the goal is reached
+        for neighbor in graph.get(current, []):
+            if neighbor not in path:  # Avoid cycles
+                new_path = path + [neighbor]
+                open_list.append((neighbor, new_path))  # Add the neighbor and the new path
+    return "No path found"  # If no path exists
+
+# Example graph and heuristic (heuristic is not used in this simple example)
+graph = {'A': ['B', 'C'], 'B': ['A', 'D'], 'C': ['A'], 'D': ['B']}
+heuristic = {'A': 4, 'B': 2, 'C': 3, 'D': 0}
+
+# Run the A* search from 'A' to 'D'
+result = a_star('A', 'D', graph, heuristic)
+print("Path found:", result)
