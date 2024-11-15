@@ -1,0 +1,17 @@
+def water_jug_problem(target_x, target_y):
+    x, y = 0, 0  # Start with both jugs empty
+
+    while x != target_x or y != target_y:  # Continue until Jug X has 2 liters and Jug Y has 0 liters
+        if x == 0:
+            x = 4  # Fill Jug X (4 liters)
+        elif y == 3:
+            y = 0  # Empty Jug Y (3 liters)
+        else:
+            # Pour from X to Y until Y is full or X is empty
+            pour = min(x, 3 - y)
+            x -= pour
+            y += pour
+        print(f"Jug X: {x} liters, Jug Y: {y} liters")
+
+# Example: Set target amounts for each jug
+water_jug_problem(target_x=2, target_y=0)
