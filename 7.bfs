@@ -1,0 +1,14 @@
+def bfs(graph, start, goal):
+    queue = [start]  # Start with the start node in the queue
+    visited = []  # List to track visited nodes
+
+    while queue:
+        node = queue.pop(0)  # Get the first node from the queue
+        if node == goal:
+            print(f"Goal {goal} found!")
+            return
+        if node not in visited:
+            visited.append(node)  # Mark node as visited
+            print(f"Visited {node}")
+            queue.extend(graph[node])  # Add neighbors to the queue
+    print(f"Goal {goal} not found.")
