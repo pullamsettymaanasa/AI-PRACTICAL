@@ -1,0 +1,19 @@
+def decision_tree(weather, temperature):
+    if weather == 'Sunny':
+        if temperature > 30:
+            return 'Go to the beach'
+        else:
+            return 'Go for a walk'
+    elif weather == 'Rainy':
+        if temperature < 20:
+            return 'Stay home and read a book'
+        else:
+            return 'Stay home and watch a movie'
+    else:
+        return 'Invalid weather'
+
+# Example inputs
+weather = 'Sunny'  # Change to 'Rainy' for different result
+temperature = 32   # Can change to test different temperature values
+
+print(decision_tree(weather, temperature))
