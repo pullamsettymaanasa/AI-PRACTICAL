@@ -1,0 +1,28 @@
+def ucs(graph, start, goal):
+    queue = [(0, start)]  # (cost, node)
+    visited = set()
+
+    while queue:
+        queue.sort()  # Sort by cost (lowest first)
+        cost, node = queue.pop(0)  # Get the node with the lowest cost
+        
+        if node == goal:
+            print(f"Goal {goal} found with cost {cost}")
+            return
+        
+        if node not in visited:
+            visited.add(node)
+            for neighbor, edge_cost in graph[node]:
+                if neighbor not in visited:
+                    queue.append((cost + edge_cost, neighbor))
+    print("Goal not found")
+
+# Example graph: node -> [(neighbor, cost)]
+graph = {
+    'A': [('B', 1), ('C', 4)],
+    'B': [('A', 1), ('C', 2), ('D', 5)],
+    'C': [('A', 4), ('B', 2), ('D', 1)],
+    'D': [('B', 5), ('C', 1)]
+}
+
+ucs(graph, 'A', 'D')
