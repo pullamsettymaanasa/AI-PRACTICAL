@@ -1,0 +1,40 @@
+def vacuum_cleaner_problem(rooms):
+    position = 0  # Start at the first room
+
+    while "dirty" in rooms:  # Continue until there are no dirty rooms
+        if rooms[position] == "dirty":
+            rooms[position] = "clean"  # Clean the room if it's dirty
+            print(f"Room {position + 1} cleaned.")
+        
+        # Move to the next room (cycle through all rooms)
+        position = (position + 1) % len(rooms)
+        print(f"Rooms Status: {rooms}")
+
+# Example: List of rooms with "dirty" and "clean" status
+rooms = ["dirty", "dirty", "clean", "dirty", "clean"]
+vacuum_cleaner_problem(rooms)
+
+
+WITH MATRIX:
+def vacuum_cleaner(grid):
+    rows = len(grid)
+    cols = len(grid[0])
+    
+    # Loop over every room in the grid
+    for i in range(rows):
+        for j in range(cols):
+            if grid[i][j] == 1:  # If the room is dirty
+                grid[i][j] = 0  # Clean the room
+                print(f"Room ({i},{j}) cleaned.")
+            print(f"Grid Status: {grid}")
+
+# Example grid (1 = dirty, 0 = clean)
+grid = [
+    [1, 0, 1],
+    [1, 1, 0],
+    [0, 1, 1]
+]
+
+vacuum_cleaner(grid)
+
+
