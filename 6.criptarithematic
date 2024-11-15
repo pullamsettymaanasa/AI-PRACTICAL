@@ -1,0 +1,23 @@
+def crypt_arithmetic():
+    # Try each possible digit for S and M as they can't be 0 (no leading zeros)
+    for S in range(1, 10):
+        for M in range(1, 10):
+            for E in range(10):
+                for N in range(10):
+                    for D in range(10):
+                        for O in range(10):
+                            for R in range(10):
+                                for Y in range(10):
+                                    # Check if all digits are unique
+                                    if len({S, E, N, D, M, O, R, Y}) == 8:
+                                        # Calculate SEND, MORE, and MONEY
+                                        send = 1000 * S + 100 * E + 10 * N + D
+                                        more = 1000 * M + 100 * O + 10 * R + E
+                                        money = 10000 * M + 1000 * O + 100 * N + 10 * E + Y
+                                        
+                                        # Check if SEND + MORE equals MONEY
+                                        if send + more == money:
+                                            print(f"SEND = {send}, MORE = {more}, MONEY = {money}")
+                                            return
+
+crypt_arithmetic()
