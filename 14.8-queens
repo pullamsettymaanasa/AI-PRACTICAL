@@ -1,0 +1,19 @@
+def is_safe(board, row, col):
+    for i in range(row):  # Check column and diagonals
+        if board[i] == col or \
+           board[i] - i == col - row or \
+           board[i] + i == col + row:
+            return False
+    return True
+
+def solve_n_queens(n, row=0, board=[]):
+    if row == n:  # All queens are placed
+        print(board)  # Print solution
+        return True
+    
+    for col in range(n):  # Try placing in each column
+        if is_safe(board, row, col):
+            solve_n_queens(n, row + 1, board + [col])  # Solve for next row
+
+# Solve for 8 queens
+solve_n_queens(8)
